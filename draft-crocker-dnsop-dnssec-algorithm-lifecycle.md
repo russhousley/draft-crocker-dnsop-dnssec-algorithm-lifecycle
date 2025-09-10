@@ -254,6 +254,6 @@ current guidance to avoid DNS interoperability issues.
 --- back
 
 # Acknowledgments
-{:numbered="no"}
+{:numbered="false"}
 
 Thanks to Wes Hardaker and Warren Kumari for constructive comments.
