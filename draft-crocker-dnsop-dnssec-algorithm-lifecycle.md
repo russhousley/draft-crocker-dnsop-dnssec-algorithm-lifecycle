@@ -133,7 +133,7 @@ following process and criteria for these transitions.
 
  C. Mainstream
 
- - IETF reaches consensus that algorithm has reached mainstream status.
+ - IETF reaches consensus that algorithm has reached mainstream status; deployment is essentially universal.
  - Actions:
     * IETF publishes notice that algorithm has reached mainstream status.
     * Signers using older algorithms, particularly algorithms in the Phaseout or later phases should transition to a mainstream algorithm.
