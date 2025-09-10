@@ -3,24 +3,24 @@ title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
 docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
 submissiontype: IETF
-number: 
+number:
 date:
 category: info
 consensus: true
 v: 3
-area: OPS
+area: "Operations and Management"
 ipr: trust200902
-workgroup: DNSOP Working Group
+workgroup: "Domain Name System Operations"
 keyword: Internet-Draft
 
 stand_alone: yes
 pi: [toc, sortrefs, symrefs]
 
 venue:
-  group: WG
-  type: Working Group
-  mail: dnsop@ietf.org
-  github: russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle
+  group: "Domain Name System Operations"
+  type: "Working Group"
+  mail: "dnsop@ietf.org"
+  github: "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle"
 
 author:
 - name: Steve Crocker
