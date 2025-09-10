@@ -45,7 +45,6 @@ normative:
    - org: IANA
 
 informative:
- RFC8126:
  I-D.ietf-dnsop-rfc8624-bis:
 
 --- abstract
