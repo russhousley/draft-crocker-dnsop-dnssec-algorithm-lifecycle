@@ -30,6 +30,10 @@ author:
   org: Vigil Security, LLC
   abbrev: Vigil Security
   email: housley@vigilsec.com
+- name: Wes Hardaker
+  org: Google, LLC
+  abbrev: Google
+  email: ietf@hardakers.net
 
 normative:
  RFC8126:
