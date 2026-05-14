@@ -31,16 +31,16 @@ author:
 
 informative:
   RFC9904:
- DNSKEY-IANA:
-   target: https://www.iana.org/assignments/dns-sec-alg-numbers
-   title: "DNS Security Algorithm Numbers"
-   author:
-   - org: IANA
- DS-IANA:
-   target: https://www.iana.org/assignments/ds-rr-types
-   title: "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
-   author:
-   - org: IANA
+  DNSKEY-IANA:
+    target: https://www.iana.org/assignments/dns-sec-alg-numbers
+    title: "DNS Security Algorithm Numbers"
+    author:
+    - org: IANA
+  DS-IANA:
+    target: https://www.iana.org/assignments/ds-rr-types
+    title: "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
+    author:
+    - org: IANA
 
 --- abstract
 
