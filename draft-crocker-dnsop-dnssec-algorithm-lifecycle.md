@@ -1,7 +1,7 @@
 ---
 title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
-docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-03
+docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
 submissiontype: independent
 date: 2026-05-13
 category: info
@@ -103,19 +103,19 @@ We define seven phases in the lifecycle of an individual DNSSEC algorithm.
 
 The previous section does not specify the process and criteria for advancing a
 DNSSEC algorithm through these lifecycle phases.  There are six transition points,
-labelled A through F, between these seven lifecycle phases.  We propose the
-following process and criteria for these transitions.
+labeled A through F, between these seven lifecycle phases.  The
+following sections describe a process and criteria for each of these transitions.
 
- A. Algorithm Inclusion
+## A. Algorithm Inclusion
 
  - Prerequisites:
-    * Algorithm has been given a Mnemonic and number in the "DNS Security Algorithm Numbers" registry.
+    * Algorithm has been given a Mnemonic and number in the "DNS Security Algorithm Numbers" registry {{DNSKEY-IANA}}.
     * Cryptographic community has determined that the algorithm as suitable to use for DNSSEC.
     * Documentation and implementations are widely available and stable.
  - IETF determines the algorithm is suitable for use with DNSSEC.
- - Action: IETF publishes notice that the algorithm is suitable for use and should be deployed for signature validation.
+ - Action: IETF publishes notice that the algorithm is suitable for use and may be deployed for signature validation.
 
- B. Ready for Use
+## B. Ready for Use
 
  - Prerequisites:
     * Deployment has been measured.
@@ -123,21 +123,21 @@ following process and criteria for these transitions.
  - IETF reaches consensus that algorithm has been widely deployed for DNSSEC.
  - Action: IETF publishes notice that algorithm is available for DNSSEC signing.
 
- C. Mainstream
+## C. Mainstream
 
  - IETF reaches consensus that algorithm has reached mainstream status; deployment is essentially universal.
  - Actions:
     * IETF publishes notice that algorithm has reached mainstream status.
     * Signers using older algorithms, particularly algorithms in the Phaseout or later phases should transition to a mainstream algorithm.
 
- D. Phaseout
+## D. Phaseout
 
  - Prerequisites:
     * Cryptographic community has determined the algorithm is reaching its end of life.
  - IETF determines it is time to announce the phaseout.
  - Action: IETF publishes notice to signing operators to transition away from the algorithm and begin signing with a mainstream algorithm.
 
- E. Deprecation
+## E. Deprecation
 
  - Prerequisites:
     * Measure signing activity.
@@ -145,7 +145,7 @@ following process and criteria for these transitions.
  - IETF determines it is time to deprecate the algorithm for use with DNSSEC.
  - Action: IETF publishes notice that use of the algorithm is now inappropriate for DNSSEC signing.
 
- F. Obsolescence
+## F. Obsolescence
 
  - Prerequisite: Measurement of signing is at the lowest achievable level.
  - IETF determines the algorithm is obsolete.
