@@ -1,25 +1,19 @@
 ---
 title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
-docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
-submissiontype: IETF
-number:
-date:
+docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-03
+submissiontype: independent
+date: 2026-05-13
 category: info
-consensus: true
+consensus: false
 v: 3
-area: "Operations and Management"
 ipr: trust200902
-workgroup: "Domain Name System Operations"
 keyword: Internet-Draft
 
 stand_alone: yes
 pi: [toc, sortrefs, symrefs]
 
 venue:
-  group: "Domain Name System Operations"
-  type: "Working Group"
-  mail: "dnsop@ietf.org"
   github: "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle"
 
 author:
@@ -30,32 +24,33 @@ author:
   org: Vigil Security, LLC
   abbrev: Vigil Security
   email: housley@vigilsec.com
-
-normative:
- RFC8126:
- DNSKEY-IANA:
-   target: https://www.iana.org/assignments/dns-sec-alg-numbers
-   title: "DNS Security Algorithm Numbers"
-   author:
-   - org: IANA
- DS-IANA:
-   target: https://www.iana.org/assignments/ds-rr-types
-   title: "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
-   author:
-   - org: IANA
+- name: Wes Hardaker
+  org: Google, LLC
+  abbrev: Google
+  email: ietf@hardakers.net
 
 informative:
- I-D.ietf-dnsop-rfc8624-bis:
+  RFC9904:
+  DNSKEY-IANA:
+    target: https://www.iana.org/assignments/dns-sec-alg-numbers
+    title: "DNS Security Algorithm Numbers"
+    author:
+    - org: IANA
+  DS-IANA:
+    target: https://www.iana.org/assignments/ds-rr-types
+    title: "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
+    author:
+    - org: IANA
 
 --- abstract
 
 Cryptographic algorithms for DNSSEC go through multiple phases during their
-lifetime.  They are created, tested, adopted, used, and deprecated over a
-period of time.  This RFC defines phases for the DNSSEC algorithm lifecycle,
-and it defines the criteria for moving from one phase to the next.
+lifetime.  They are created, tested, adopted, used, and deprecated.  This
+document defines phases for the DNSSEC algorithm lifecycle, and it defines
+criteria that can be used by the IETF for moving an algorithm from one
+phase to the next.
 
 --- middle
-
 
 # Background
 
@@ -65,19 +60,18 @@ uses an algorithm to sign, the party that receives that signed message should be
 able to validate the signature.  This means the receiving parties need to
 implement the validation algorithm before the sending parties can expect to
 use it effectively.  Equally, the receiving parties have to keep the
-validation algorithm in service even after the signing parties stop using it.
+validation algorithm in service until all signing parties stop using it.
 
 These relationships seem obvious, but there has not been an organized
-way to communicate within the Internet community regarding these
+way to communicate within the Internet community regarding DNSSEC
 algorithm transitions.  This document builds upon the enhancements
-defined in {{I-D.ietf-dnsop-rfc8624-bis}} to the IANA "DNS Security
-Algorithm Numbers" registry {{DNSKEY-IANA}} and  the IANA "DNSSEC
-Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
-registry {{DS-IANA}}; the values in these registries tell the phase
-that the algorithm is in with respect to this lifecycle. This document
-discusses both the expected phasing in and
-out of algorithms individually using these IANA registries, as well
-the need for how the DNSSEC ecosystem as a whole should ensure it is
+defined in {{RFC9904}} to the IANA "DNS Security Algorithm Numbers"
+registry {{DNSKEY-IANA}} and  the IANA "DNSSEC Delegation Signer (DS)
+Resource Record (RR) Type Digest Algorithms" registry {{DS-IANA}}; the
+values in these registries tell the lifecycle phase that the algorithm
+is in. This document discusses both the expected phasing in and
+out of algorithms individually using these IANA registries.  In addition,
+it discusses a way that the DNSSEC ecosystem as a whole could ensure it is
 left in a resilient cryptographic state.
 
 # Seven phases in the lifecycle of a DNSSEC algorithm {#phases}
@@ -104,7 +98,6 @@ We define seven phases in the lifecycle of an individual DNSSEC algorithm.
 
  7. Obsolete:
     No support for signing or signature validation is expected.
-
 
 # Process and Criteria for transitions {#criteria}
 
@@ -158,18 +151,15 @@ following process and criteria for these transitions.
  - IETF determines the algorithm is obsolete.
  - Action: IETF publishes notice that algorithm is obsolete and ought be removed from implementations.
 
-
 # Lifecycle Phase and the IANA Registry
 
 The enhancements to the IANA registry of DNSSEC algorithms defined in
-{{I-D.ietf-dnsop-rfc8624-bis}}.  Table 1 suggests the values to be
-placed into each of the IANA registry columns "Use for DNSSSEC
-Signing", "Use for DNSSSEC Validation", "Implement for DNSSSEC
-Signing", and "Implement for DNSSSEC Validation" for each phase in the
-algorithms lifecycle defined in {{phases}}.  The IETF is encouraged to
-follow Table 1 when assigning the values in both of these IANA
-registries algorithms as each algorithm progresses through the
-lifecycle.
+{{RFC9904}}.  Table 1 suggests the values to be placed into each of the
+IANA registry columns "Use for DNSSSEC Signing", "Use for DNSSSEC
+Validation", "Implement for DNSSSEC Signing", and "Implement for DNSSSEC
+Validation" for each phase in the algorithms lifecycle defined in
+{{phases}}.  The IETF is encouraged to follow Table 1 when assigning the
+IANA registry values.
 
 ~~~
 
@@ -204,30 +194,20 @@ lifecycle.
 
 # Considerations for maintaining a robust DNSSEC algorithm state
 
-The above considers the values associated with a particular algorithm
-in the IANA registry for "DNS Security Algorithm Numbers" {{DNSKEY-IANA}}
+The above recommendations consider the values associated with a particular
+algorithm in the IANA registry for "DNS Security Algorithm Numbers" {{DNSKEY-IANA}}
 and the IANA registry for "DNSSEC Delegation Signer (DS) Resource Record (RR)
 Type Digest Algorithms" {{DS-IANA}}.  It is equally as important to ensure
 that as algorithms come into favor and out of favor that the current set
 of available algorithms always include some that are the Mainstream
 state.  As the IETF community considers transitioning a particular
-algorithm beyond the Mainstream state, it must simultaneously ensure
+algorithm beyond the Mainstream state, it ought to simultaneously ensure
 that at least one other algorithm is already present in the Mainstream state
 or that one other algorithm is in the Ready to Use state and available
 to become a Mainstream algorithm.  Specifically, at no time should
 there be zero algorithms in the Mainstream state.
 
 # IANA Considerations
-
-IANA is asked to amend the {{DNSKEY-IANA}} and {{DS-IANA}} registries
-to show the current phase of each algorithm.  In addition, IANA is asked
-to show the history of future transitions through each phase.
-
-The IESG is asked to name a panel of at least three designated experts (see
-{{Section 5 of RFC8126}}) to advise IANA when an algorithm is under
-consideration to be moved from one phase to the next.  These designated
-experts should be familiar with hash functions, digital signature algorithms,
-and the DSNSEC protocol.
 
 IANA has no actions related to this document.
 
@@ -240,7 +220,7 @@ will be able to validate signatures.  Likewise, following the criteria will
 ensure that out-of-date DNSSEC algorithm are retired in a graceful manner.  The
 criteria associated with the transition between phases of the lifecycle will
 depend on the process that makes changes to the IANA registry as defined in
-{{I-D.ietf-dnsop-rfc8624-bis}}.
+{{RFC9904}}.
 
 If the industry fails to achieve global consensus on the state of any
 one algorithm such that domain owners deploying signing zones disagree
@@ -255,4 +235,4 @@ current guidance to avoid DNS interoperability issues.
 # Acknowledgments
 {:numbered="false"}
 
-Thanks to Wes Hardaker and Warren Kumari for constructive comments.
+Thanks to Warren Kumari for constructive comments.
