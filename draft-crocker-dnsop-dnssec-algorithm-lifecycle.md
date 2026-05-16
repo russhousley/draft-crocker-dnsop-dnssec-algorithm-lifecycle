@@ -85,9 +85,9 @@ times, where publishers and verifies agree to a minimal set of
 algorithms widely, if not completely, available for use as multiple
 algorithms simultaneously traverse through their lifecycles.
 
-# Seven phases in the lifecycle of a DNSSEC algorithm {#phases}
+# The Seven Phases in the Lifecycle of a DNSSEC Algorithm {#phases}
 
-We define seven phases in the lifecycle of an individual DNSSEC algorithm.
+This document defines seven phases in the lifecycle of an individual DNSSEC algorithm:
 
  1. Experimental:
     The algorithm is under development by the cryptographic community and is not yet ready for general use.
