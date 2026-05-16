@@ -102,25 +102,38 @@ This document defines seven phases in the lifecycle of an individual DNSSEC algo
 : The algorithm has reached "recommended" status.  Implementers are expected to support the algorithm for signing and signature validation.
 
 5. Phaseout:
-: The algorithm is nearing the end of its lifecycle, but it is still in use.  Implementers are advised to transition to other recommended algorithms.  Signing should be phased out.
+: The algorithm is nearing the end of its lifecycle, but it is still
+  in use.  Implementers are advised to ensure other algorithms are
+  available for signers and versifiers can transition to.  Signing
+  should be phased out.
 
 6. Deprecated:
-: All use for signing should have stopped, but signature validation is still supported.
+: All use for signing should have stopped, but signature validation is
+  still supported to support the last signers that are delayed in transitioning.
 
 7. Obsolete:
 : No support for signing or signature validation is expected.
 
 # Process and Criteria for transitions {#criteria}
 
-The previous section does not specify the process and criteria for advancing a
-DNSSEC algorithm through these lifecycle phases.  There are six transition points,
-labeled A through F, between these seven lifecycle phases.  The
-following sections describe a process and criteria for each of these transitions.
+The previous section does not specify the process and criteria for
+advancing a DNSSEC algorithm through these lifecycle phases.  There
+are six transition points, labeled A through F, between these seven
+lifecycle phases.  The following subsections describe a process and
+criteria for each of these transitions.
+
+These transitions points are idealistic in nature and describe when
+algorithms are safely able to transition with reasonable time between
+each of the steps.  External factors, such as sudden advances in
+cryptographic attacks, may lead to some algorithms transitioning more
+rapidly or even jumping states entirely in extreme cases.  Similarly,
+very experimental algorithms may never reach an Adopted state if they
+fail to show promise for use within DNSSEC.
 
 ## A. Algorithm Inclusion
 
  - Prerequisites:
-    * Algorithm has been given a Mnemonic and number in the "DNS Security Algorithm Numbers" registry {{DNSKEY-IANA}}.
+    * The algorithm has been given a Mnemonic and code-point assignment in the "DNS Security Algorithm Numbers" registry {{DNSKEY-IANA}}.
     * Cryptographic community has determined that the algorithm as suitable to use for DNSSEC.
     * Documentation and implementations are widely available and stable.
  - IETF determines the algorithm is suitable for use with DNSSEC.
