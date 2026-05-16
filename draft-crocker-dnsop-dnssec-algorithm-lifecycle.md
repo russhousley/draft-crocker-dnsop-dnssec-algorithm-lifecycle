@@ -55,13 +55,17 @@ phase to the next.
 
 # Background
 
-Each DNSSEC cryptographic algorithm is used in two distinct but interconnected
-ways.  The first is to sign.  The second is to validate a signature.  If someone
-uses an algorithm to sign, the party that receives that signed message should be
-able to validate the signature.  This means the receiving parties need to
-implement the validation algorithm before the sending parties can expect to
-use it effectively.  Equally, the receiving parties have to keep the
-validation algorithm in service until all signing parties stop using it.
+Each DNSSEC cryptographic algorithm is used in two distinct but
+interconnected ways.  The first occurs when a domain owner signs their
+zone using a DNSSEC algorithm.  The second occurs when a validating
+resolver verifies that the DNSSEC signatures are correct.  If someone
+uses a DNSSEC algorithm to sign DNS records, the party that receives
+that signed set of DNS records should be able to validate the
+signatures.  Importantly, this means receiving parties need to
+implement the validation algorithm before the sending parties can
+expect to use it effectively.  Equally, the receiving parties have to
+keep the validation algorithm in service until all signing parties
+stop using it.
 
 These relationships seem obvious, but there has not been an organized
 way to communicate within the Internet community regarding DNSSEC
