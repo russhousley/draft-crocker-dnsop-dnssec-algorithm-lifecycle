@@ -44,9 +44,10 @@ informative:
 
 --- abstract
 
-Cryptographic algorithms for DNSSEC go through multiple phases during their
-lifetime.  They are created, tested, adopted, used, and deprecated.  This
-document defines phases for the DNSSEC algorithm lifecycle, and it defines
+Cryptographic algorithms for DNSSEC go through multiple phases during
+their lifetime.  They are experimental, adopted, generally available,
+in mainstream use, phasing out, deprecated, and obsoleted.  This
+document defines phases for the DNSSEC algorithm lifecycle, and
 criteria that can be used by the IETF for moving an algorithm from one
 phase to the next.
 
