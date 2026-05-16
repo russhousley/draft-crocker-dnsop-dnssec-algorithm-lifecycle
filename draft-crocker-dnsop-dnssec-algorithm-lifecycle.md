@@ -67,17 +67,23 @@ expect to use it effectively.  Equally, the receiving parties have to
 keep the validation algorithm in service until all signing parties
 stop using it.
 
-These relationships seem obvious, but there has not been an organized
-way to communicate within the Internet community regarding DNSSEC
-algorithm transitions.  This document builds upon the enhancements
-defined in {{RFC9904}} to the IANA "DNS Security Algorithm Numbers"
-registry {{DNSKEY-IANA}} and  the IANA "DNSSEC Delegation Signer (DS)
-Resource Record (RR) Type Digest Algorithms" registry {{DS-IANA}}; the
-values in these registries tell the lifecycle phase that the algorithm
-is in. This document discusses both the expected phasing in and
-out of algorithms individually using these IANA registries.  In addition,
-it discusses a way that the DNSSEC ecosystem as a whole could ensure it is
-left in a resilient cryptographic state.
+These relationships seem obvious in hindsight, but there has not been
+an organized way to communicate the current state of a DNSSEC
+algorithm within the Internet community regarding DNSSEC algorithm
+transitions.  This document builds upon the enhancements defined in
+{{RFC9904}} to the IANA "DNS Security Algorithm Numbers" registry
+{{DNSKEY-IANA}} and the IANA "DNSSEC Delegation Signer (DS) Resource
+Record (RR) Type Digest Algorithms" registry {{DS-IANA}}; the values
+in these registries enable us to describe the lifecycle phase that an
+algorithm is in. This document adds additional structure to those
+tables by discussing the values that need to be encoded within them to
+document the expected phasing into and out of algorithms as they
+traverse from a new state to eventually being considered obsolete.  In
+addition, it discusses a way that the DNSSEC ecosystem as a whole
+could ensure it is left in a resilient cryptographic state at all
+times, where publishers and verifies agree to a minimal set of
+algorithms widely, if not completely, available for use as multiple
+algorithms simultaneously traverse through their lifecycles.
 
 # Seven phases in the lifecycle of a DNSSEC algorithm {#phases}
 
