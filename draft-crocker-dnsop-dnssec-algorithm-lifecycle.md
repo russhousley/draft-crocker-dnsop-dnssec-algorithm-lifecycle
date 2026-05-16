@@ -89,26 +89,26 @@ algorithms simultaneously traverse through their lifecycles.
 
 This document defines seven phases in the lifecycle of an individual DNSSEC algorithm:
 
- 1. Experimental:
-    The algorithm is under development by the cryptographic community and is not yet ready for general use.
+1. Experimental
+: The algorithm is under development by the cryptographic community and is not yet ready for general use.
 
- 2. Adopted:
-    The algorithm is ready to be used by the Internet community.  It is listed in the IANA registry.  Implementers are expected to support the algorithm for signature validation.
+2. Adopted
+: The algorithm is ready to be used by the Internet community.  It is listed in the IANA registry.  Implementers are expected to support the algorithm for signature validation.
 
- 3. Available:
-    The algorithm is ready for use by all parties.  Implementers are expected to support the algorithm for signing and signature validation.
+3. Available:
+: The algorithm is ready for use by all parties.  Implementers are expected to support the algorithm for signing and signature validation.
 
- 4. Mainstream:
-    The algorithm has reached "recommended" status.  Implementers are expected to support the algorithm for signing and signature validation.
+4. Mainstream:
+: The algorithm has reached "recommended" status.  Implementers are expected to support the algorithm for signing and signature validation.
 
- 5. Phaseout:
-    The algorithm is nearing the end of its lifecycle, but it is still in use.  Implementers are advised to transition to other recommended algorithms.  Signing should be phased out.
+5. Phaseout:
+: The algorithm is nearing the end of its lifecycle, but it is still in use.  Implementers are advised to transition to other recommended algorithms.  Signing should be phased out.
 
- 6. Deprecated:
-    All use for signing should have stopped, but signature validation is still supported.
+6. Deprecated:
+: All use for signing should have stopped, but signature validation is still supported.
 
- 7. Obsolete:
-    No support for signing or signature validation is expected.
+7. Obsolete:
+: No support for signing or signature validation is expected.
 
 # Process and Criteria for transitions {#criteria}
 
