@@ -259,7 +259,7 @@ algorithm in the IANA registry for "DNS Security Algorithm Numbers" {{DNSKEY-IAN
 and the IANA registry for "DNSSEC Delegation Signer (DS) Resource Record (RR)
 Type Digest Algorithms" {{DS-IANA}} using values from Table 1.  It is equally as important to ensure
 that as algorithms come into favor and out of favor that the current set
-of available algorithms always include some that are the Mainstream
+of available algorithms always include at least one that is in the Mainstream
 state.  As the IETF community considers transitioning a particular
 algorithm beyond the Mainstream state, it ought to simultaneously ensure
 that at least one other algorithm is already present in the Mainstream state
@@ -275,7 +275,7 @@ IANA has no actions related to this document.
 
 This document proposes a lifecycle for DNSSEC algorithms.  By following
 the criteria presented in {{criteria}}, Internet-wide deployment of new
-DNSSEC algorithm will occur in a smooth manner that ensures all implementations
+DNSSEC algorithms will occur in a smooth manner that ensures all implementations
 will be able to validate signatures.  Likewise, following the criteria will
 ensure that out-of-date DNSSEC algorithm are retired in a graceful manner.  The
 criteria associated with the transition between phases of the lifecycle will
@@ -285,10 +285,12 @@ depend on the process that makes changes to the IANA registry as defined in
 If the industry fails to achieve global consensus on the state of any
 one algorithm such that domain owners deploying signing zones disagree
 with the deployed validating resolvers then it likely that DNS
-resolutions will fail, rendering the DNS unusable.  As such, vendors
-of both authoritative and recursive resolvers, and the operating
-systems that deploy them, are encouraged to strictly follow the
-current guidance to avoid DNS interoperability issues.
+resolutions will fail, rendering some of the DNS unusable.  As such,
+vendors of both authoritative and recursive resolvers, and the
+operating systems that deploy them, are encouraged to collaboration
+about the current phases and transitions of DNSSEC algorithms and
+strictly follow the current agreed-upon guidance to avoid DNS
+interoperability issues.
 
 --- back
 
