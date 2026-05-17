@@ -25,7 +25,7 @@ author:
   abbrev: Vigil Security
   email: housley@vigilsec.com
 - name: Wes Hardaker
-  org: Google, LLC
+  org: Google LLC
   abbrev: Google
   email: ietf@hardakers.net
 
