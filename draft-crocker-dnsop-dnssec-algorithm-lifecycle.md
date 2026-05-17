@@ -45,7 +45,7 @@ informative:
 --- abstract
 
 Cryptographic algorithms for DNSSEC go through multiple phases during
-their lifetime.  They are experimental, adopted, generally available,
+their lifetime: experimental, adopted, generally available,
 in mainstream use, phasing out, deprecated, and obsoleted.  This
 document defines phases for the DNSSEC algorithm lifecycle, and
 criteria that can be used by the IETF for moving an algorithm from one
@@ -57,33 +57,36 @@ phase to the next.
 
 Each DNSSEC cryptographic algorithm is used in two distinct but
 interconnected ways.  The first occurs when a domain owner signs their
-zone using a DNSSEC algorithm.  The second occurs when a validating
-resolver verifies that the DNSSEC signatures are correct.  If someone
+DNS records using a DNSSEC algorithm.  The second occurs when a DNSSEC
+validator verifies that the DNSSEC signatures are correct.  If someone
 uses a DNSSEC algorithm to sign DNS records, the party that receives
-that signed set of DNS records should be able to validate the
-signatures.  Importantly, this means receiving parties need to
-implement the validation algorithm before the sending parties can
-expect to use it effectively.  Equally, the receiving parties have to
-keep the validation algorithm in service until all signing parties
-stop using it.
+that signed set of DNS records need to be able to validate the
+signatures for them to be useful.  Importantly, this means receiving
+parties need to implement a validation algorithm before the sending
+parties can expect to use it effectively.  Equally, the receiving
+parties have to keep the validation algorithm in service until all
+signing parties stop using it.
 
 These relationships seem obvious in hindsight, but there has not been
 an organized way to communicate the current state of a DNSSEC
-algorithm within the Internet community regarding DNSSEC algorithm
-transitions.  This document builds upon the enhancements defined in
-{{RFC9904}} to the IANA "DNS Security Algorithm Numbers" registry
-{{DNSKEY-IANA}} and the IANA "DNSSEC Delegation Signer (DS) Resource
-Record (RR) Type Digest Algorithms" registry {{DS-IANA}}; the values
-in these registries enable us to describe the lifecycle phase that an
-algorithm is in. This document adds additional structure to those
-tables by discussing the values that need to be encoded within them to
-document the expected phasing into and out of algorithms as they
-traverse from a new state to eventually being considered obsolete.  In
-addition, it discusses a way that the DNSSEC ecosystem as a whole
-could ensure it is left in a resilient cryptographic state at all
-times, where publishers and verifies agree to a minimal set of
-algorithms widely, if not completely, available for use as multiple
-algorithms simultaneously traverse through their lifecycles.
+algorithm within the Internet community during the algorithm's phases
+and transitions between them.  This document builds upon the
+enhancements defined in {{RFC9904}} to the IANA "DNS Security
+Algorithm Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC
+Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
+registry {{DS-IANA}}; the columns in these registries enable us to
+describe the lifecycle phase that an algorithm is in. This document
+adds additional structure to those tables by discussing the values
+that need to be encoded within them, enabling documentation of the
+expected phasing points as algorithms traverse into and out new
+states.
+
+In addition, this document discusses how the IETF can ensure the
+DNSSEC ecosystem as a whole remains in a resilient cryptographic state
+at all times, where publishers and verifies widely, if not completely,
+agree to a minimal set of algorithms to be available for use even as
+multiple algorithms simultaneously traverse through their independent
+lifecycles.
 
 # The Seven Phases in the Lifecycle of a DNSSEC Algorithm {#phases}
 
