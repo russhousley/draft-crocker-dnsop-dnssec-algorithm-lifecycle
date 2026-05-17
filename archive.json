@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-14T03:37:23.483692+00:00",
+  "timestamp": "2026-05-17T03:39:37.032919+00:00",
   "repo": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOPtYpuc7cDaet",
+      "title": "Drop iana suggestions",
+      "url": "https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle/pull/1",
+      "state": "MERGED",
+      "author": "russhousley",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Updates for independent stream",
+      "createdAt": "2026-05-15T20:08:15Z",
+      "updatedAt": "2026-05-15T20:08:31Z",
+      "baseRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "baseRefName": "main",
+      "baseRefOid": "fac130c9849dec5707ccd48c83e6557f2e62daff",
+      "headRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "headRefName": "drop-IANA-suggestions",
+      "headRefOid": "22f5b0987d6c2c309bcc265aee054126ad2fd412",
+      "closedAt": "2026-05-15T20:08:31Z",
+      "mergedAt": "2026-05-15T20:08:31Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "fa30ab65cb18a8d944071e57547dd2a70dcde31a"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
