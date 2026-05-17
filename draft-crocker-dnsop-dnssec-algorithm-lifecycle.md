@@ -130,50 +130,86 @@ rapidly or even jumping states entirely in extreme cases.  Similarly,
 very experimental algorithms may never reach an Adopted state if they
 fail to show promise for use within DNSSEC.
 
+Note: in the text descriptions below there are descriptions indicating
+that the IETF should perform some action (such as "the IETF publishes
+notice").  This document does not define how these actions should be
+implemented.  Some may require simple mailing list discussions, some
+may require formal standards actions, etc.  This document concentrates
+on the goals for proper phasing and not formality semantics.
+
 ## A. Algorithm Inclusion
 
  - Prerequisites:
-    * The algorithm has been given a Mnemonic and code-point assignment in the "DNS Security Algorithm Numbers" registry {{DNSKEY-IANA}}.
-    * Cryptographic community has determined that the algorithm as suitable to use for DNSSEC.
+    * The algorithm has been given a Mnemonic and code-point
+      assignment in the "DNS Security Algorithm Numbers" registry
+      {{DNSKEY-IANA}}.
+    * The cryptographic community has determined that the algorithm as
+      suitable to use for DNSSEC.
     * Documentation and implementations are widely available and stable.
- - IETF determines the algorithm is suitable for use with DNSSEC.
- - Action: IETF publishes notice that the algorithm is suitable for use and may be deployed for signature validation.
+ - The IETF has also determined that the algorithm is suitable for use with DNSSEC.
+ - Action: The IETF publishes notice that the algorithm is suitable
+   for use and may be deployed for signature validation.
 
 ## B. Ready for Use
 
  - Prerequisites:
     * Deployment has been measured.
     * Deployment is deemed to have reached an acceptable level.
- - IETF reaches consensus that algorithm has been widely deployed for DNSSEC.
- - Action: IETF publishes notice that algorithm is available for DNSSEC signing.
+ - The IETF reaches consensus that the algorithm has been widely deployed for DNSSEC.
+ - Action: The IETF publishes notice that the algorithm is available for
+   DNSSEC signing.
+ - action The IETF publishes updates to the "DNS Security Algorithm
+   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   {{DS-IANA}} using values from Table 1.
 
 ## C. Mainstream
 
- - IETF reaches consensus that algorithm has reached mainstream status; deployment is essentially universal.
+ - The IETF reaches consensus that the algorithm has reached mainstream
+   status since deployment is essentially universal.
  - Actions:
-    * IETF publishes notice that algorithm has reached mainstream status.
-    * Signers using older algorithms, particularly algorithms in the Phaseout or later phases should transition to a mainstream algorithm.
+    * The IETF publishes notice that the algorithm has reached mainstream status.
+    * Signers using older algorithms, particularly algorithms in the Phaseout or later phases should transition to a mainstream the algorithm.
 
 ## D. Phaseout
 
  - Prerequisites:
-    * Cryptographic community has determined the algorithm is reaching its end of life.
- - IETF determines it is time to announce the phaseout.
- - Action: IETF publishes notice to signing operators to transition away from the algorithm and begin signing with a mainstream algorithm.
+    * The cryptographic community has determined the algorithm is reaching its end of life.
+ - The IETF determines announces the DNSSEC algorithm is being phased out.
+ - Action: The IETF publishes notice to signing operators that they
+   should transition away from the algorithm and begin signing with
+   another mainstream algorithm.
+ - Action: The IETF publishes updates to the "DNS Security Algorithm
+   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   {{DS-IANA}} using values from Table 1.
 
 ## E. Deprecation
 
  - Prerequisites:
     * Measure signing activity.
     * Signing activity is deemed to have largely subsided.
- - IETF determines it is time to deprecate the algorithm for use with DNSSEC.
- - Action: IETF publishes notice that use of the algorithm is now inappropriate for DNSSEC signing.
+ - The IETF determines the DNSSEC algorithm should be deprecated for usage.
+ - Action: The IETF publishes notice that use of the algorithm is now
+   inappropriate for DNSSEC signing.
+ - Action: The IETF publishes updates to the "DNS Security Algorithm
+   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   {{DS-IANA}} using values from Table 1.
 
 ## F. Obsolescence
 
- - Prerequisite: Measurement of signing is at the lowest achievable level.
- - IETF determines the algorithm is obsolete.
- - Action: IETF publishes notice that algorithm is obsolete and ought be removed from implementations.
+ - Prerequisite: 
+    * Deployment has been measured.
+    * Deployment is deemed to have reached the lowest achievable level
+      of signing.
+ - The IETF determines the algorithm is obsolete.
+ - Action: The IETF publishes notice that algorithm is obsolete and
+   ought be removed from implementations.
+ - Action: The IETF publishes updates to the "DNS Security Algorithm
+   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   {{DS-IANA}} using values from Table 1.
 
 # Lifecycle Phase and the IANA Registry
 
@@ -221,7 +257,7 @@ IANA registry values.
 The above recommendations consider the values associated with a particular
 algorithm in the IANA registry for "DNS Security Algorithm Numbers" {{DNSKEY-IANA}}
 and the IANA registry for "DNSSEC Delegation Signer (DS) Resource Record (RR)
-Type Digest Algorithms" {{DS-IANA}}.  It is equally as important to ensure
+Type Digest Algorithms" {{DS-IANA}} using values from Table 1.  It is equally as important to ensure
 that as algorithms come into favor and out of favor that the current set
 of available algorithms always include some that are the Mainstream
 state.  As the IETF community considers transitioning a particular
