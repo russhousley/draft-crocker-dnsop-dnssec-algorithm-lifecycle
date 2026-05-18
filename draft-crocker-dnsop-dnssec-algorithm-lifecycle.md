@@ -213,7 +213,7 @@ registry {{DS-IANA}} using values from Table 1.
 
 ## G. Obsolescence
 
- - Prerequisite: 
+ - Prerequisite:
     * Deployment has been measured.
     * Deployment is deemed to have reached the lowest achievable level
       of signing.
