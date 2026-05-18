@@ -125,19 +125,22 @@ lifecycle phases.  The following subsections describe a process and
 criteria for each of these transitions.
 
 These transitions points are idealistic in nature and describe when
-algorithms are safely able to transition with reasonable time between
-each of the steps.  External factors, such as sudden advances in
-cryptographic attacks, may lead to some algorithms transitioning more
-rapidly or even jumping states entirely in extreme cases.  Similarly,
-very experimental algorithms may never reach an Adopted state if they
-fail to show promise for use within DNSSEC.
+algorithms are safely able to transition with reasonable stable times
+between each of the steps.  External factors, such as sudden advances
+in cryptographic attacks, may lead to some algorithms transitioning
+more rapidly than desired, or even jumping states entirely in extreme
+cases (for example transitioning from Adopted to Depreciated if a
+newer algorithm is suddenly determined to be insecure).  Similarly,
+very experimental algorithms may never even reach an Adopted state if
+they fail to show promise for use within DNSSEC.
 
-Note: in the text descriptions below there are descriptions indicating
-that the IETF should perform some action (such as "the IETF publishes
-notice").  This document does not define how these actions should be
-implemented.  Some may require simple mailing list discussions, some
-may require formal standards actions, etc.  This document concentrates
-on the goals for proper phasing and not formality semantics.
+Note: in the text below there are descriptions indicating that the
+IETF should perform some action (such as "the IETF publishes notice").
+This document does not define how these actions should be implemented.
+Some actions may require simple mailing list discussions, some may
+require formal standards actions, etc.  This document concentrates on
+the goals for proper communicating phasing and not the formality
+semantics required to do so.
 
 ## A. Algorithm Inclusion
 
@@ -148,7 +151,8 @@ on the goals for proper phasing and not formality semantics.
     * The cryptographic community has determined that the algorithm as
       suitable to use for DNSSEC.
     * Documentation and implementations are widely available and stable.
- - The IETF has also determined that the algorithm is suitable for use with DNSSEC.
+ - The IETF has also determined that the algorithm is suitable for use
+   with DNSSEC.
  - Action: The IETF publishes notice that the algorithm is suitable
    for use and may be deployed for signature validation.
 
@@ -157,10 +161,11 @@ on the goals for proper phasing and not formality semantics.
  - Prerequisites:
     * Deployment has been measured.
     * Deployment is deemed to have reached an acceptable level.
- - The IETF reaches consensus that the algorithm has been widely deployed for DNSSEC.
+ - The IETF reaches consensus that the algorithm has been widely
+   deployed for DNSSEC.
  - Action: The IETF publishes notice that the algorithm is available for
    DNSSEC signing.
- - action The IETF publishes updates to the "DNS Security Algorithm
+ - Action: The IETF publishes updates to the "DNS Security Algorithm
    Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
    Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
    {{DS-IANA}} using values from Table 1.
@@ -168,19 +173,28 @@ on the goals for proper phasing and not formality semantics.
 ## C. Mainstream
 
  - The IETF reaches consensus that the algorithm has reached mainstream
-   status since deployment is essentially universal.
+   status as deployment is essentially universal.
  - Actions:
-    * The IETF publishes notice that the algorithm has reached mainstream status.
-    * Signers using older algorithms, particularly algorithms in the Phaseout or later phases should transition to a mainstream the algorithm.
+    * Deployment has been measured.
+    * The IETF publishes notice that the algorithm has reached
+      mainstream status.
+    * Signers using older algorithms, particularly algorithms in the
+      Phaseout or later phases should transition to a mainstream the
+      algorithm.
+ - Action: The IETF publishes updates to the "DNS Security Algorithm
+   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   {{DS-IANA}} using values from Table 1.
 
 ## D. Phaseout
 
  - Prerequisites:
-    * The cryptographic community has determined the algorithm is reaching its end of life.
+    * The cryptographic community has determined the algorithm is
+      reaching its end of life.
  - The IETF determines announces the DNSSEC algorithm is being phased out.
  - Action: The IETF publishes notice to signing operators that they
    should transition away from the algorithm and begin signing with
-   another mainstream algorithm.
+   an algorithm listed as mainstream.
  - Action: The IETF publishes updates to the "DNS Security Algorithm
    Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
    Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
@@ -190,8 +204,10 @@ on the goals for proper phasing and not formality semantics.
 
  - Prerequisites:
     * Measure signing activity.
+    * Deployment has been measured.
     * Signing activity is deemed to have largely subsided.
- - The IETF determines the DNSSEC algorithm should be deprecated for usage.
+ - The IETF determines the DNSSEC algorithm should be deprecated for
+   usage.
  - Action: The IETF publishes notice that use of the algorithm is now
    inappropriate for DNSSEC signing.
  - Action: The IETF publishes updates to the "DNS Security Algorithm
