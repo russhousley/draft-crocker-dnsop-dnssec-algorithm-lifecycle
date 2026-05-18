@@ -120,7 +120,7 @@ This document defines seven phases in the lifecycle of an individual DNSSEC algo
 
 The previous section does not specify the process and criteria for
 advancing a DNSSEC algorithm through these lifecycle phases.  There
-are six transition points, labeled A through F, between these seven
+are sever transition points, labeled A through G, between these seven
 lifecycle phases.  The following subsections describe a process and
 criteria for each of these transitions.
 
@@ -240,30 +240,30 @@ cases that deviate from the guidance this document offers.
 
 ~~~
 
-+=======+===========================+===========================+
-|       |    DNSSEC Validation      |      DNSSEC Signing       |
-|       +-------------+-------------+-------------+-------------+
-| Phase |  Implement  |     Use     |  Implement  |     Use     |
-+=======+=============+=============+=============+=============+
-| 1     |     MAY     |     MAY     |     MAY     |     MAY     |
-+-------+-------------+-------------+-------------+-------------+
-| 2     | RECOMMENDED |     MAY     | RECOMMENDED |     MAY     |
-+-------+-------------+-------------+-------------+-------------+
-| 3     |     MUST    | RECOMMENDED |     MUST    |     MAY     |
-+-------+-------------+-------------+-------------+-------------+
-| 4     |     MUST    |     MUST    |     MUST    | RECOMMENDED |
-+-------+-------------+-------------+-------------+-------------+
-| 5     |     MUST    | RECOMMENDED | RECOMMENDED |     NOT     |
-|       |             |             |             | RECOMMENDED |
-+-------+-------------+-------------+-------------+-------------+
-| 6     | RECOMMENDED |     NOT     |     NOT     |   MUST NOT  |
-|       |             | RECOMMENDED | RECOMMENDED |             |
-+-------+-------------+-------------+-------------+-------------+
-| 7     |     NOT     |   MUST NOT  |   MUST NOT  |   MUST NOT  |
-|       | RECOMMENDED |             |             |             |
-|       |  -- or --   |             |             |             |
-|       |  MUST NOT   |             |             |             |
-+-------+-------------+-------------+-------------+-------------+
++=======+===========================+===============================+
+|       |    DNSSEC Validation      | DNSSEC Delegation and Signing |
+|       +-------------+-------------+-------------+-----------------+
+| Phase |  Implement  |     Use     |  Implement  |     Use         |
++=======+=============+=============+=============+=================+
+| 1     |     MAY     |     MAY     |     MAY     |     MAY         |
++-------+-------------+-------------+-------------+-----------------+
+| 2     | RECOMMENDED |     MAY     | RECOMMENDED |     MAY         |
++-------+-------------+-------------+-------------+-----------------+
+| 3     |     MUST    | RECOMMENDED |     MUST    |     MAY         |
++-------+-------------+-------------+-------------+-----------------+
+| 4     |     MUST    |     MUST    |     MUST    | RECOMMENDED     |
++-------+-------------+-------------+-------------+-----------------+
+| 5     |     MUST    | RECOMMENDED | RECOMMENDED |     NOT         |
+|       |             |             |             | RECOMMENDED     |
++-------+-------------+-------------+-------------+-----------------+
+| 6     | RECOMMENDED |     NOT     |     NOT     |   MUST NOT      |
+|       |             | RECOMMENDED | RECOMMENDED |                 |
++-------+-------------+-------------+-------------+-----------------+
+| 7     |     NOT     |   MUST NOT  |   MUST NOT  |   MUST NOT      |
+|       | RECOMMENDED |             |             |                 |
+|       |  -- or --   |             |             |                 |
+|       |  MUST NOT   |             |             |                 |
++-------+-------------+-------------+-------------+-----------------+
 
   Table 1.  Determine lifecycle phase from the IANA registry.
 
