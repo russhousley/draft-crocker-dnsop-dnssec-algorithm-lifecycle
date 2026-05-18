@@ -300,23 +300,24 @@ IANA has no actions related to this document.
 
 # Security Considerations
 
-This document proposes a lifecycle for DNSSEC algorithms.  By following
-the criteria presented in {{criteria}}, Internet-wide deployment of new
-DNSSEC algorithms will occur in a smooth manner that ensures all implementations
-will be able to validate signatures.  Likewise, following the criteria will
-ensure that out-of-date DNSSEC algorithm are retired in a graceful manner.  The
-criteria associated with the transition between phases of the lifecycle will
-depend on the process that makes changes to the IANA registry as defined in
-{{RFC9904}}.
+This document proposes a lifecycle for DNSSEC algorithms.  By
+following the criteria presented in {{criteria}}, Internet-wide
+deployment of new DNSSEC algorithms will occur in a smooth manner that
+ensures deployed implementations will be able to validate published
+signatures.  Likewise, following the criteria will ensure that
+out-of-date DNSSEC algorithms are retired in a graceful manner.  The
+criteria associated with how to effect documenting the transition
+between phases of the lifecycle will depend on the process that makes
+changes to the IANA registry as defined in {{RFC9904}}.
 
 If the industry fails to achieve global consensus on the state of any
 one algorithm such that domain owners deploying signing zones disagree
-with the deployed validating resolvers then it likely that DNS
-resolutions will fail, rendering some of the DNS unusable.  As such,
-vendors of both authoritative and recursive resolvers, and the
-operating systems that deploy them, are encouraged to collaboration
-about the current phases and transitions of DNSSEC algorithms and
-strictly follow the current agreed-upon guidance to avoid DNS
+with the deployed validating resolvers, then it likely that DNS
+resolutions will fail which in turn will render some portion of the
+DNS as unusable.  As such, vendors of both authoritative and recursive
+resolvers, and the operating systems that deploy them, are encouraged
+to collaborate about the current phases and transitions of DNSSEC
+algorithms and to strictly follow the guidance in order to avoid DNS
 interoperability issues.
 
 --- back
