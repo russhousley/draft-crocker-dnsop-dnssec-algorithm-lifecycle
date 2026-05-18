@@ -142,7 +142,19 @@ require formal standards actions, etc.  This document concentrates on
 the goals for proper communicating phasing and not the formality
 semantics required to do so.
 
-## A. Algorithm Inclusion
+For each of the steps below, in addition to the actions listed for
+each step, the IETF will need to publish updates to the "DNS Security
+Algorithm Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC
+Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
+registry {{DS-IANA}} using values from Table 1.
+
+## A. Algorithm Experimentation
+
+ - Prerequisites:
+    * An algorithm has been created along with a document describing
+      how it can be used within DNSSEC.
+
+## B. Algorithm Inclusion
 
  - Prerequisites:
     * The algorithm has been given a Mnemonic and code-point
@@ -156,7 +168,7 @@ semantics required to do so.
  - Action: The IETF publishes notice that the algorithm is suitable
    for use and may be deployed for signature validation.
 
-## B. Ready for Use
+## C. Ready for Use
 
  - Prerequisites:
     * Deployment has been measured.
@@ -165,12 +177,8 @@ semantics required to do so.
    deployed for DNSSEC.
  - Action: The IETF publishes notice that the algorithm is available for
    DNSSEC signing.
- - Action: The IETF publishes updates to the "DNS Security Algorithm
-   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
-   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
-   {{DS-IANA}} using values from Table 1.
 
-## C. Mainstream
+## D. Mainstream
 
  - The IETF reaches consensus that the algorithm has reached mainstream
    status as deployment is essentially universal.
@@ -181,12 +189,8 @@ semantics required to do so.
     * Signers using older algorithms, particularly algorithms in the
       Phaseout or later phases should transition to a mainstream the
       algorithm.
- - Action: The IETF publishes updates to the "DNS Security Algorithm
-   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
-   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
-   {{DS-IANA}} using values from Table 1.
 
-## D. Phaseout
+## E. Phaseout
 
  - Prerequisites:
     * The cryptographic community has determined the algorithm is
@@ -195,12 +199,8 @@ semantics required to do so.
  - Action: The IETF publishes notice to signing operators that they
    should transition away from the algorithm and begin signing with
    an algorithm listed as mainstream.
- - Action: The IETF publishes updates to the "DNS Security Algorithm
-   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
-   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
-   {{DS-IANA}} using values from Table 1.
 
-## E. Deprecation
+## F. Deprecation
 
  - Prerequisites:
     * Measure signing activity.
@@ -210,12 +210,8 @@ semantics required to do so.
    usage.
  - Action: The IETF publishes notice that use of the algorithm is now
    inappropriate for DNSSEC signing.
- - Action: The IETF publishes updates to the "DNS Security Algorithm
-   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
-   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
-   {{DS-IANA}} using values from Table 1.
 
-## F. Obsolescence
+## G. Obsolescence
 
  - Prerequisite: 
     * Deployment has been measured.
@@ -224,10 +220,6 @@ semantics required to do so.
  - The IETF determines the algorithm is obsolete.
  - Action: The IETF publishes notice that algorithm is obsolete and
    ought be removed from implementations.
- - Action: The IETF publishes updates to the "DNS Security Algorithm
-   Numbers" registry {{DNSKEY-IANA}} and the IANA "DNSSEC Delegation
-   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
-   {{DS-IANA}} using values from Table 1.
 
 # Lifecycle Phase and the IANA Registry
 
