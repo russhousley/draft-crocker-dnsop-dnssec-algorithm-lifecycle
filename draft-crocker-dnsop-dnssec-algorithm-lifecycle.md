@@ -231,13 +231,20 @@ semantics required to do so.
 
 # Lifecycle Phase and the IANA Registry
 
-The enhancements to the IANA registry of DNSSEC algorithms defined in
-{{RFC9904}}.  Table 1 suggests the values to be placed into each of the
-IANA registry columns "Use for DNSSSEC Signing", "Use for DNSSSEC
-Validation", "Implement for DNSSSEC Signing", and "Implement for DNSSSEC
-Validation" for each phase in the algorithms lifecycle defined in
-{{phases}}.  The IETF is encouraged to follow Table 1 when assigning the
-IANA registry values.
+This document provides guidance about the values to be encoded within
+the implementation and usage columns from the IANA registry of DNSSEC
+algorithms defined in {{RFC9904}}.  Specifically, Table 1 suggests the
+values to be placed into each of the IANA registry columns "Use for
+DNSSSEC Signing", "Use for DNSSSEC Validation", "Implement for DNSSSEC
+Signing", and "Implement for DNSSSEC Validation" columns for each
+phase in algorithm lifecycles defined in {{phases}}.  The IETF is
+encouraged to follow Table 1 when assigning the IANA registry values.
+
+Note that at times, particular for past assignments, the column
+numbers in the registries may not match the guidance encoded in this
+document.  This might be due to values created prior to this guidance
+being offered, or when the IETF needs to document very unusual corner
+cases that deviate from the guidance this document offers.
 
 ~~~
 
@@ -272,18 +279,20 @@ IANA registry values.
 
 # Considerations for maintaining a robust DNSSEC algorithm state
 
-The above recommendations consider the values associated with a particular
-algorithm in the IANA registry for "DNS Security Algorithm Numbers" {{DNSKEY-IANA}}
-and the IANA registry for "DNSSEC Delegation Signer (DS) Resource Record (RR)
-Type Digest Algorithms" {{DS-IANA}} using values from Table 1.  It is equally as important to ensure
-that as algorithms come into favor and out of favor that the current set
-of available algorithms always include at least one that is in the Mainstream
-state.  As the IETF community considers transitioning a particular
-algorithm beyond the Mainstream state, it ought to simultaneously ensure
-that at least one other algorithm is already present in the Mainstream state
-or that one other algorithm is in the Ready to Use state and available
-to become a Mainstream algorithm.  Specifically, at no time should
-there be zero algorithms in the Mainstream state.
+The above sections consider the values associated with a particular
+algorithm in the IANA registry for "DNS Security Algorithm Numbers"
+{{DNSKEY-IANA}} and the IANA registry for "DNSSEC Delegation Signer
+(DS) Resource Record (RR) Type Digest Algorithms" {{DS-IANA}} using
+values from Table 1.  It is equally as important to ensure that as
+algorithms come into and out of favor that the current set of
+available algorithms always includes at least one algorithm that is in
+the Mainstream state.  As the IETF community considers transitioning a
+particular algorithm beyond the Mainstream state, it ought to
+simultaneously ensure that at least one other algorithm is already
+present in the Mainstream state or that one other algorithm is in the
+Ready to Use state and available to simultaneously become a Mainstream
+algorithm.  Specifically, at no time should there be zero algorithms
+in the Mainstream state.
 
 # IANA Considerations
 
