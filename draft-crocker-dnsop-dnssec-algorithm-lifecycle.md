@@ -3,7 +3,7 @@ title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
 docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
 submissiontype: independent
-date: 2026-05-13
+date: 2026-06-05
 category: info
 consensus: false
 v: 3
@@ -237,6 +237,9 @@ numbers in the registries may not match the guidance encoded in this
 document.  This might be due to values created prior to this guidance
 being offered, or when the IETF needs to document very unusual corner
 cases that deviate from the guidance this document offers.
+
+Note that in the first phase, the Experimental Phase, the algorithm
+should only be used in a controlled or experimental environment.
 
 ~~~
 
