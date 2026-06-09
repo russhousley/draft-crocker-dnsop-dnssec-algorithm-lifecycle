@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-07T04:09:05.717880+00:00",
+  "timestamp": "2026-06-09T03:41:57.904426+00:00",
   "repo": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
   "labels": [
     {
@@ -84,28 +84,30 @@
       "id": "PR_kwDOPtYpuc7ctqVm",
       "title": "A large pass on the document with a bunch of added text",
       "url": "https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle/pull/2",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "hardaker",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This has so many changes the diff is likely useless, so I'd start reading at the top and just go all the way through looking for things you may disagree with or mistakes you think I've made.",
       "createdAt": "2026-05-18T15:28:05Z",
-      "updatedAt": "2026-05-18T15:58:10Z",
+      "updatedAt": "2026-06-07T20:02:48Z",
       "baseRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
       "baseRefName": "main",
-      "baseRefOid": "fa30ab65cb18a8d944071e57547dd2a70dcde31a",
+      "baseRefOid": "480b9dbd4c7b19f2d6ea6074a512953028e09f42",
       "headRepository": "hardaker/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
       "headRefName": "hardaker-final-review",
-      "headRefOid": "41a0a0733ecafd0282ca40159d9b9ba43801ce08",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "616f3832039321032bf00f91c5e354b23f18551e",
+      "closedAt": "2026-06-07T20:02:48Z",
+      "mergedAt": "2026-06-07T20:02:48Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "0eb909baf13b245188e5f59ec0ea9be07627fdd5"
+      },
       "comments": [
         {
           "author": "hardaker",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "pushed a couple minor fixes fyi.\r\n\r\nA formatted version is here: https://ant.isi.edu/~hardaker/tmp/draft-crocker-dnsop-dnssec-algorithm-lifecycle.html",
           "createdAt": "2026-05-18T15:58:10Z",
           "updatedAt": "2026-05-18T15:58:10Z"
@@ -126,6 +128,62 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOPtYpuc7jrkfu",
+      "title": "Steve's suggestions",
+      "url": "https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle/pull/3",
+      "state": "MERGED",
+      "author": "russhousley",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Steve Crocker's suggestions",
+      "createdAt": "2026-06-07T19:57:06Z",
+      "updatedAt": "2026-06-07T19:57:57Z",
+      "baseRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "baseRefName": "drop-IANA-suggestions",
+      "baseRefOid": "22f5b0987d6c2c309bcc265aee054126ad2fd412",
+      "headRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "headRefName": "main",
+      "headRefOid": "a0dbf89e1f1755bac4e855331109113ba85fc593",
+      "closedAt": "2026-06-07T19:57:57Z",
+      "mergedAt": "2026-06-07T19:57:57Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "d2c164c2d96863558f61a74e793c142b38cc9a3d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOPtYpuc7jrlmv",
+      "title": "Drop IANA Suggestions",
+      "url": "https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle/pull/4",
+      "state": "MERGED",
+      "author": "russhousley",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Prepare for independent stream",
+      "createdAt": "2026-06-07T19:59:01Z",
+      "updatedAt": "2026-06-07T19:59:16Z",
+      "baseRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "baseRefName": "main",
+      "baseRefOid": "a0dbf89e1f1755bac4e855331109113ba85fc593",
+      "headRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "headRefName": "drop-IANA-suggestions",
+      "headRefOid": "d2c164c2d96863558f61a74e793c142b38cc9a3d",
+      "closedAt": "2026-06-07T19:59:16Z",
+      "mergedAt": "2026-06-07T19:59:16Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "480b9dbd4c7b19f2d6ea6074a512953028e09f42"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
