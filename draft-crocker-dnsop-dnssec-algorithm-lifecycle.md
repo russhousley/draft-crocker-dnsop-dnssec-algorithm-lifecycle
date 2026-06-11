@@ -1,9 +1,9 @@
 ---
 title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
-docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
+docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-03
 submissiontype: independent
-date: 2026-06-05
+date: 2026-06-12
 category: info
 consensus: false
 v: 3
@@ -238,9 +238,6 @@ document.  This might be due to values created prior to this guidance
 being offered, or when the IETF needs to document very unusual corner
 cases that deviate from the guidance this document offers.
 
-Note that in the first phase, the Experimental Phase, the algorithm
-should only be used in a controlled or experimental environment.
-
 ~~~
 
 +=======+===========================+===============================+
@@ -267,6 +264,9 @@ should only be used in a controlled or experimental environment.
 |       |  -- or --   |             |             |                 |
 |       |  MUST NOT   |             |             |                 |
 +-------+-------------+-------------+-------------+-----------------+
+
+ Note that in the first phase, the Experimental Phase, the algorithm
+ should only be used in a controlled or experimental environment.
 
   Table 1.  Determine lifecycle phase from the IANA registry.
 
