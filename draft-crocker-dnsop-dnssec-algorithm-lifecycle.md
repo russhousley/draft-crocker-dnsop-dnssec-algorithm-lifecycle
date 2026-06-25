@@ -232,11 +232,11 @@ Signing", and "Implement for DNSSSEC Validation" columns for each
 phase in algorithm lifecycles defined in {{phases}}.  The IETF is
 encouraged to follow Table 1 when assigning the IANA registry values.
 
-Note that at times, particular for past assignments, the column
-numbers in the registries may not match the guidance encoded in this
-document.  This might be due to values created prior to this guidance
-being offered, or when the IETF needs to document very unusual corner
-cases that deviate from the guidance this document offers.
+Note that at times, particular values associated with past assignments,
+may not match the guidance encoded in this document.  This might be due
+to values created prior to this guidance being offered, or when the
+IETF needs to document very unusual corner cases that deviate from
+the guidance this document offers.
 
 ~~~
 
