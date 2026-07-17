@@ -272,6 +272,19 @@ should only be used in a controlled or experimental environment.
 
 ~~~
 
+## Applicability
+
+Note that within the IETF, per {{RFC9904}}, this phasing approach is
+only suggested for algorithms that are being proposed for standards
+track documents since all other algorithms cannot obtain states other
+than MAY, NOT RECOMMENDED, or MUST NOT.  Other organizations are
+welcome to make use of this Lifecycle Phasing approach if they desire
+as well.
+
+## An example situation that this phased approach may have avoided
+
+During the 
+
 # Considerations for maintaining a robust DNSSEC algorithm state
 
 The above sections consider the values associated with a particular
