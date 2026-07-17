@@ -281,9 +281,16 @@ than MAY, NOT RECOMMENDED, or MUST NOT.  Other organizations are
 encouraged to make use of this Lifecycle Phasing approach if they
 are able to as well.
 
-## An example situation that this phased approach may have avoided
+## A case study: the RSASHA1 signing algorithm
 
-During the 
+Before {{RFC9904}} and this document were written, the RSASHA1
+algorithm entered a problematic state where there was still
+significant deployment of RSASHA1 when one operating system stopped
+distributing DNSSEC validating resolvers that supported the RSASHA1
+algorithm.  This uncoordinated difference between deployments of
+DNSSEC publishers and DNSSEC validators left some zones in an
+unprotected state.  Had the industry followed the Lifecycle Phasing
+approach in this document, this situation could have been mitigated.
 
 # Considerations for maintaining a robust DNSSEC algorithm state
 
