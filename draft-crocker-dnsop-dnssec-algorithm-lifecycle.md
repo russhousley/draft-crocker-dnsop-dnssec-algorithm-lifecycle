@@ -278,8 +278,8 @@ Note that within the IETF, per {{RFC9904}}, this phasing approach is
 only suggested for algorithms that are being proposed for standards
 track documents since all other algorithms cannot obtain states other
 than MAY, NOT RECOMMENDED, or MUST NOT.  Other organizations are
-welcome to make use of this Lifecycle Phasing approach if they desire
-as well.
+encouraged to make use of this Lifecycle Phasing approach if they
+are able to as well.
 
 ## An example situation that this phased approach may have avoided
 
