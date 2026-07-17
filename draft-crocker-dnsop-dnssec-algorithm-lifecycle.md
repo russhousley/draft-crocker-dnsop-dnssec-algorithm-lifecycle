@@ -229,8 +229,8 @@ algorithms defined in {{RFC9904}}.  Specifically, Table 1 suggests the
 values to be placed into each of the IANA registry columns "Use for
 DNSSSEC Signing", "Use for DNSSSEC Validation", "Implement for DNSSSEC
 Signing", and "Implement for DNSSSEC Validation" columns for each
-phase in algorithm lifecycles defined in {{phases}}.  The IETF is
-encouraged to follow Table 1 when assigning the IANA registry values.
+phase in algorithm lifecycles defined in {{phases}}.  
+The IETF is encouraged to consider use of Table 1 when assigning the IANA registry values.
 
 Note that at times, particular for past assignments, the column
 numbers in the registries may not match the guidance encoded in this
