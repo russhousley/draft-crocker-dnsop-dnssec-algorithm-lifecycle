@@ -1,7 +1,7 @@
 ---
 title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
-docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-03
+docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
 submissiontype: independent
 date: 2026-06-12
 category: info
@@ -233,7 +233,7 @@ algorithms defined in {{RFC9904}}.  Specifically, Table 1 suggests the
 values to be placed into each of the IANA registry columns "Use for
 DNSSSEC Signing", "Use for DNSSSEC Validation", "Implement for DNSSSEC
 Signing", and "Implement for DNSSSEC Validation" columns for each
-phase in algorithm lifecycles defined in {{phases}}.  
+phase in algorithm lifecycles defined in {{phases}}.
 The IETF and other SDOs are encouraged to consider use of Table 1 when
 assigning IAN or other registry values.
 
