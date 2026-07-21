@@ -9,11 +9,11 @@
 <meta content="Russ Housley" name="author">
 <meta content="Wes Hardaker" name="author">
 <meta content="
-       Cryptographic algorithms for go through multiple phases during their
+       Cryptographic algorithms go through multiple phases during their
 lifetime: experimental, adopted, generally available, in mainstream
 use, phasing out, deprecated, and obsoleted.  This document defines
 phases for algorithm deployment lifecycles within DNSSEC, and criteria
-that the IETF and/or other Standards Organizations are
+that the IETF and/or other Standards Development Organizations are
 encouraged to use when moving an algorithm from one phase to the next. 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
@@ -1094,11 +1094,11 @@ svg {
 <h1 id="title">Documenting and Managing DNSSEC Algorithm Lifecycles</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Cryptographic algorithms for go through multiple phases during their
+<p id="section-abstract-1">Cryptographic algorithms go through multiple phases during their
 lifetime: experimental, adopted, generally available, in mainstream
 use, phasing out, deprecated, and obsoleted.  This document defines
 phases for algorithm deployment lifecycles within DNSSEC, and criteria
-that the IETF and/or other Standards Organizations are
+that the IETF and/or other Standards Development Organizations are
 encouraged to use when moving an algorithm from one phase to the next.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
@@ -1166,25 +1166,25 @@ encouraged to use when moving an algorithm from one phase to the next.<a href="#
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-process-and-criteria-for-tr" class="internal xref">Process and Criteria for transitions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-a-algorithm-experimentation" class="internal xref">A. Algorithm Experimentation</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-a-transition-into-experimen" class="internal xref">A. Transition into Experimental</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-b-algorithm-inclusion" class="internal xref">B. Algorithm Inclusion</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-b-transition-into-adopted" class="internal xref">B. Transition into Adopted</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-c-ready-for-use" class="internal xref">C. Ready for Use</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-c-transition-into-available" class="internal xref">C. Transition into Available</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-d-mainstream" class="internal xref">D. Mainstream</a></p>
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-d-transition-into-mainstrea" class="internal xref">D. Transition into Mainstream</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-e-phaseout" class="internal xref">E. Phaseout</a></p>
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-e-transition-into-phaseout" class="internal xref">E. Transition into Phaseout</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-f-deprecation" class="internal xref">F. Deprecation</a></p>
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-f-transition-into-deprecate" class="internal xref">F. Transition into Deprecated</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-g-obsolescence" class="internal xref">G. Obsolescence</a></p>
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-g-transition-into-obsolesce" class="internal xref">G. Transition into Obsolescence</a></p>
 </li>
             </ul>
 </li>
@@ -1247,15 +1247,15 @@ Resource Record (RR) Type Digest Algorithms" registry <span>[<a href="#DS-IANA" 
 columns in these registries enable us to describe the lifecycle phase
 that an algorithm is in. This document suggests additional structure
 to those tables by stating the values that need to be encoded within
-them. In turn, this enables the IETF or other Standards Organizations
+them. In turn, this enables the IETF or other Standards Development Organizations
 (SDOs) to document their current phasing points as algorithms traverse
 into and out states during their lifetimes.  Note that this document
 uses conventions from the IANA DNSSEC algorithm tables with the values
 defined in <span>[<a href="#RFC9904" class="cite xref">RFC9904</a>]</span>, but similar documentation methodologies may
 exist within other SDOs.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">This document also discusses how the IETF and other SDOs can
-ensure the DNSSEC ecosystem as a whole remains in a resilient
-cryptographic state at all times, where publishers and verifies
+ensure the DNSSEC ecosystem always remains in a resilient
+cryptographic state, where publishers and verifies
 widely, if not completely, agree to a minimal set of algorithms that
 must be available for use even as the collection of algorithms
 simultaneously traverse through independent lifecycles.<a href="#section-1-3" class="pilcrow">¶</a></p>
@@ -1345,7 +1345,7 @@ still supported to support the last signers that are delayed in transitioning.<a
       </h2>
 <p id="section-3-1">The previous section does not specify the process and criteria for
 advancing a DNSSEC algorithm through these lifecycle phases.  There
-are sever transition points, labeled A through G, between these seven
+are seven transition points, labeled A through G, between these seven
 lifecycle phases.  The following subsections describe a process and
 criteria for each of these transitions.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">These transitions points are idealistic in nature and describe when
@@ -1362,17 +1362,17 @@ they fail to show promise for use within DNSSEC.<a href="#section-3-2" class="pi
 publishes notice").  This document does not define how these actions
 should be implemented.  Some actions may require simple mailing list
 discussions, some may require formal standards actions, etc.  This
-document concentrates on the goals for proper communicating phasing
+document concentrates on the goals for properly communicating phasing
 and not the formality semantics required to do so.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">For each of the steps below, in addition to the actions listed for
 each step, the SDO will need to publish updates to the "DNS Security
 Algorithm Numbers" registry <span>[<a href="#DNSKEY-IANA" class="cite xref">DNSKEY-IANA</a>]</span> and the "DNSSEC Delegation
 Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
 <span>[<a href="#DS-IANA" class="cite xref">DS-IANA</a>]</span> using values from Table 1.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<div id="a-algorithm-experimentation">
+<div id="a-transition-into-experimental">
 <section id="section-3.1">
-        <h3 id="name-a-algorithm-experimentation">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-a-algorithm-experimentation" class="section-name selfRef">A. Algorithm Experimentation</a>
+        <h3 id="name-a-transition-into-experimen">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-a-transition-into-experimen" class="section-name selfRef">A. Transition into Experimental</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.1-1.1">
@@ -1387,10 +1387,10 @@ how it can be used within DNSSEC.<a href="#section-3.1-1.1.2.1.1" class="pilcrow
         </ul>
 </section>
 </div>
-<div id="b-algorithm-inclusion">
+<div id="b-transition-into-adopted">
 <section id="section-3.2">
-        <h3 id="name-b-algorithm-inclusion">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-b-algorithm-inclusion" class="section-name selfRef">B. Algorithm Inclusion</a>
+        <h3 id="name-b-transition-into-adopted">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-b-transition-into-adopted" class="section-name selfRef">B. Transition into Adopted</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.2-1.1">
@@ -1421,20 +1421,20 @@ for use and may be deployed for signature validation.<a href="#section-3.2-1.3.1
         </ul>
 </section>
 </div>
-<div id="c-ready-for-use">
+<div id="c-transition-into-available">
 <section id="section-3.3">
-        <h3 id="name-c-ready-for-use">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-c-ready-for-use" class="section-name selfRef">C. Ready for Use</a>
+        <h3 id="name-c-transition-into-available">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-c-transition-into-available" class="section-name selfRef">C. Transition into Available</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.3-1.1">
             <p id="section-3.3-1.1.1">Prerequisites:<a href="#section-3.3-1.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-1.1.2.1">
-                <p id="section-3.3-1.1.2.1.1">Deployment has been measured.<a href="#section-3.3-1.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-1.1.2.1.1">Validation deployment has been measured.<a href="#section-3.3-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.3-1.1.2.2">
-                <p id="section-3.3-1.1.2.2.1">Deployment is deemed to have reached an acceptable level.<a href="#section-3.3-1.1.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-3.3-1.1.2.2.1">Validation deployment is deemed to have reached an acceptable level.<a href="#section-3.3-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1449,40 +1449,40 @@ DNSSEC signing.<a href="#section-3.3-1.3.1" class="pilcrow">¶</a></p>
         </ul>
 </section>
 </div>
-<div id="d-mainstream">
+<div id="d-transition-into-mainstream">
 <section id="section-3.4">
-        <h3 id="name-d-mainstream">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-d-mainstream" class="section-name selfRef">D. Mainstream</a>
+        <h3 id="name-d-transition-into-mainstrea">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-d-transition-into-mainstrea" class="section-name selfRef">D. Transition into Mainstream</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.4-1.1">
-            <p id="section-3.4-1.1.1">The SDO reaches consensus that the algorithm has reached mainstream
+            <p id="section-3.4-1.1.1">The SDO reaches consensus that the algorithm has reached Mainstream
 status as deployment is essentially universal.<a href="#section-3.4-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.4-1.2">
             <p id="section-3.4-1.2.1">Actions:<a href="#section-3.4-1.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.4-1.2.2.1">
-                <p id="section-3.4-1.2.2.1.1">Deployment has been measured.<a href="#section-3.4-1.2.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.4-1.2.2.1.1">Validation and signing deployment has been measured.<a href="#section-3.4-1.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.4-1.2.2.2">
                 <p id="section-3.4-1.2.2.2.1">The SDO publishes notice that the algorithm has reached
-mainstream status.<a href="#section-3.4-1.2.2.2.1" class="pilcrow">¶</a></p>
+Mainstream status.<a href="#section-3.4-1.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.4-1.2.2.3">
                 <p id="section-3.4-1.2.2.3.1">Signers using older algorithms, particularly algorithms in the
-Phaseout or later phases should transition to a mainstream the
-algorithm.<a href="#section-3.4-1.2.2.3.1" class="pilcrow">¶</a></p>
+Phaseout or later phases should transition to a Mainstream or
+Ready To Use algorithm.<a href="#section-3.4-1.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
 </section>
 </div>
-<div id="e-phaseout">
+<div id="e-transition-into-phaseout">
 <section id="section-3.5">
-        <h3 id="name-e-phaseout">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-e-phaseout" class="section-name selfRef">E. Phaseout</a>
+        <h3 id="name-e-transition-into-phaseout">
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-e-transition-into-phaseout" class="section-name selfRef">E. Transition into Phaseout</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.5-1.1">
@@ -1500,28 +1500,25 @@ reaching its end of life.<a href="#section-3.5-1.1.2.1.1" class="pilcrow">¶</a>
           <li class="normal" id="section-3.5-1.3">
             <p id="section-3.5-1.3.1">Action: The SDO publishes notice to signing operators that they
 should transition away from the algorithm and begin signing with
-an algorithm listed as mainstream.<a href="#section-3.5-1.3.1" class="pilcrow">¶</a></p>
+an algorithm listed as Mainstream or Ready To Use.<a href="#section-3.5-1.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
-<div id="f-deprecation">
+<div id="f-transition-into-deprecated">
 <section id="section-3.6">
-        <h3 id="name-f-deprecation">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-f-deprecation" class="section-name selfRef">F. Deprecation</a>
+        <h3 id="name-f-transition-into-deprecate">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-f-transition-into-deprecate" class="section-name selfRef">F. Transition into Deprecated</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.6-1.1">
             <p id="section-3.6-1.1.1">Prerequisites:<a href="#section-3.6-1.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.6-1.1.2.1">
-                <p id="section-3.6-1.1.2.1.1">Measure signing activity.<a href="#section-3.6-1.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-3.6-1.1.2.1.1">Signing activity has been measured.<a href="#section-3.6-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.6-1.1.2.2">
-                <p id="section-3.6-1.1.2.2.1">Deployment has been measured.<a href="#section-3.6-1.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-3.6-1.1.2.3">
-                <p id="section-3.6-1.1.2.3.1">Signing activity is deemed to have largely subsided.<a href="#section-3.6-1.1.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.6-1.1.2.2.1">Signing activity is deemed to have largely subsided.<a href="#section-3.6-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1536,10 +1533,10 @@ inappropriate for DNSSEC signing.<a href="#section-3.6-1.3.1" class="pilcrow">¶
         </ul>
 </section>
 </div>
-<div id="g-obsolescence">
+<div id="g-transition-into-obsolescence">
 <section id="section-3.7">
-        <h3 id="name-g-obsolescence">
-<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-g-obsolescence" class="section-name selfRef">G. Obsolescence</a>
+        <h3 id="name-g-transition-into-obsolesce">
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-g-transition-into-obsolesce" class="section-name selfRef">G. Transition into Obsolescence</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="section-3.7-1.1">
@@ -1559,7 +1556,7 @@ of signing.<a href="#section-3.7-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.7-1.3">
             <p id="section-3.7-1.3.1">Action: The SDO publishes notice that algorithm is obsolete and
-ought be removed from implementations.<a href="#section-3.7-1.3.1" class="pilcrow">¶</a></p>
+can be removed from implementations.<a href="#section-3.7-1.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
