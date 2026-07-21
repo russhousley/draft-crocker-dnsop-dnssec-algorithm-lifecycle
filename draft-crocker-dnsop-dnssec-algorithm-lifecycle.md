@@ -44,11 +44,11 @@ informative:
 
 --- abstract
 
-Cryptographic algorithms for go through multiple phases during their
+Cryptographic algorithms go through multiple phases during their
 lifetime: experimental, adopted, generally available, in mainstream
 use, phasing out, deprecated, and obsoleted.  This document defines
 phases for algorithm deployment lifecycles within DNSSEC, and criteria
-that the IETF and/or other Standards Organizations are
+that the IETF and/or other Standards Development Organizations are
 encouraged to use when moving an algorithm from one phase to the next.
 
 --- middle
@@ -77,7 +77,7 @@ Resource Record (RR) Type Digest Algorithms" registry {{DS-IANA}}; the
 columns in these registries enable us to describe the lifecycle phase
 that an algorithm is in. This document suggests additional structure
 to those tables by stating the values that need to be encoded within
-them. In turn, this enables the IETF or other Standards Organizations
+them. In turn, this enables the IETF or other Standards Development Organizations
 (SDOs) to document their current phasing points as algorithms traverse
 into and out states during their lifetimes.  Note that this document
 uses conventions from the IANA DNSSEC algorithm tables with the values
@@ -85,8 +85,8 @@ defined in {{RFC9904}}, but similar documentation methodologies may
 exist within other SDOs.
 
 This document also discusses how the IETF and other SDOs can
-ensure the DNSSEC ecosystem as a whole remains in a resilient
-cryptographic state at all times, where publishers and verifies
+ensure the DNSSEC ecosystem always remains in a resilient
+cryptographic state, where publishers and verifies
 widely, if not completely, agree to a minimal set of algorithms that
 must be available for use even as the collection of algorithms
 simultaneously traverse through independent lifecycles.
@@ -124,7 +124,7 @@ This document defines seven phases in the lifecycle of an individual DNSSEC algo
 
 The previous section does not specify the process and criteria for
 advancing a DNSSEC algorithm through these lifecycle phases.  There
-are sever transition points, labeled A through G, between these seven
+are seven transition points, labeled A through G, between these seven
 lifecycle phases.  The following subsections describe a process and
 criteria for each of these transitions.
 
@@ -143,7 +143,7 @@ Note: in the text below there are descriptions indicating that the SDO
 publishes notice").  This document does not define how these actions
 should be implemented.  Some actions may require simple mailing list
 discussions, some may require formal standards actions, etc.  This
-document concentrates on the goals for proper communicating phasing
+document concentrates on the goals for properly communicating phasing
 and not the formality semantics required to do so.
 
 For each of the steps below, in addition to the actions listed for
@@ -152,13 +152,13 @@ Algorithm Numbers" registry {{DNSKEY-IANA}} and the "DNSSEC Delegation
 Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
 {{DS-IANA}} using values from Table 1.
 
-## A. Algorithm Experimentation
+## A. Transition into Experimental
 
  - Prerequisites:
     * An algorithm has been created along with a document describing
       how it can be used within DNSSEC.
 
-## B. Algorithm Inclusion
+## B. Transition into Adopted
 
  - Prerequisites:
     * The algorithm has been given a Mnemonic and code-point
@@ -172,29 +172,29 @@ Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
  - Action: The SDO publishes notice that the algorithm is suitable
    for use and may be deployed for signature validation.
 
-## C. Ready for Use
+## C. Transition into Available
 
  - Prerequisites:
-    * Deployment has been measured.
-    * Deployment is deemed to have reached an acceptable level.
+    * Validation deployment has been measured.
+    * Validation deployment is deemed to have reached an acceptable level.
  - The SDO reaches consensus that the algorithm has been widely
    deployed for DNSSEC.
  - Action: The SDO publishes notice that the algorithm is available for
    DNSSEC signing.
 
-## D. Mainstream
+## D. Transition into Mainstream
 
- - The SDO reaches consensus that the algorithm has reached mainstream
+ - The SDO reaches consensus that the algorithm has reached Mainstream
    status as deployment is essentially universal.
  - Actions:
-    * Deployment has been measured.
+    * Validation and signing deployment has been measured.
     * The SDO publishes notice that the algorithm has reached
-      mainstream status.
+      Mainstream status.
     * Signers using older algorithms, particularly algorithms in the
-      Phaseout or later phases should transition to a mainstream the
-      algorithm.
+      Phaseout or later phases should transition to a Mainstream or
+      Ready To Use algorithm.
 
-## E. Phaseout
+## E. Transition into Phaseout
 
  - Prerequisites:
     * The cryptographic community has determined the algorithm is
@@ -202,20 +202,19 @@ Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
  - The SDO determines announces the DNSSEC algorithm is being phased out.
  - Action: The SDO publishes notice to signing operators that they
    should transition away from the algorithm and begin signing with
-   an algorithm listed as mainstream.
+   an algorithm listed as Mainstream or Ready To Use.
 
-## F. Deprecation
+## F. Transition into Deprecated
 
  - Prerequisites:
-    * Measure signing activity.
-    * Deployment has been measured.
+    * Signing activity has been measured.
     * Signing activity is deemed to have largely subsided.
  - The SDO determines the DNSSEC algorithm should be deprecated for
    usage.
  - Action: The SDO publishes notice that use of the algorithm is now
    inappropriate for DNSSEC signing.
 
-## G. Obsolescence
+## G. Transition into Obsolescence
 
  - Prerequisite:
     * Deployment has been measured.
@@ -223,7 +222,7 @@ Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
       of signing.
  - The SDO determines the algorithm is obsolete.
  - Action: The SDO publishes notice that algorithm is obsolete and
-   ought be removed from implementations.
+   can be removed from implementations.
 
 # Lifecycle Phase and the IANA Registry
 
