@@ -3,7 +3,7 @@ title: Documenting and Managing DNSSEC Algorithm Lifecycles
 abbrev: DNSSEC Algorithm Lifecycles
 docname: draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
 submissiontype: independent
-date: 2026-06-12
+date: 2026-08-20
 category: info
 consensus: false
 v: 3
@@ -50,6 +50,11 @@ use, phasing out, deprecated, and obsoleted.  This document defines
 phases for algorithm deployment lifecycles within DNSSEC, and criteria
 that the IETF and/or other Standards Development Organizations are
 encouraged to use when moving an algorithm from one phase to the next.
+
+This memo is not an IETF standard, and has not been shown to have
+IETF community consensus.  However, this memo does offer suggestions
+to the IETF regarding the handling of the IANA registries for DNSSEC
+algorithms.
 
 --- middle
 
