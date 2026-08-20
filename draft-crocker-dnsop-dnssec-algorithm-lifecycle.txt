@@ -5,10 +5,10 @@
 Network Working Group                                         S. Crocker
 Internet-Draft                               Edgemoor Research Institute
 Intended status: Informational                                R. Housley
-Expires: 14 December 2026                                 Vigil Security
+Expires: 21 February 2027                                 Vigil Security
                                                              W. Hardaker
                                                                   Google
-                                                            12 June 2026
+                                                          20 August 2026
 
 
           Documenting and Managing DNSSEC Algorithm Lifecycles
@@ -23,6 +23,11 @@ Abstract
    criteria that the IETF and/or other Standards Development
    Organizations are encouraged to use when moving an algorithm from one
    phase to the next.
+
+   This memo is not an IETF standard, and has not been shown to have
+   IETF community consensus.  However, this memo does offer suggestions
+   to the IETF regarding the handling of the IANA registries for DNSSEC
+   algorithms.
 
 About This Document
 
@@ -51,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 December 2026.
+   This Internet-Draft will expire on 21 February 2027.
 
 Copyright Notice
 
