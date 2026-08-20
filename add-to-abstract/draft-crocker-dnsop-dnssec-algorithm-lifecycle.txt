@@ -1,0 +1,442 @@
+
+
+
+
+Network Working Group                                         S. Crocker
+Internet-Draft                               Edgemoor Research Institute
+Intended status: Informational                                R. Housley
+Expires: 21 February 2027                                 Vigil Security
+                                                             W. Hardaker
+                                                                  Google
+                                                          20 August 2026
+
+
+          Documenting and Managing DNSSEC Algorithm Lifecycles
+         draft-crocker-dnsop-dnssec-algorithm-lifecycle-latest
+
+Abstract
+
+   Cryptographic algorithms go through multiple phases during their
+   lifetime: experimental, adopted, generally available, in mainstream
+   use, phasing out, deprecated, and obsoleted.  This document defines
+   phases for algorithm deployment lifecycles within DNSSEC, and
+   criteria that the IETF and/or other Standards Development
+   Organizations are encouraged to use when moving an algorithm from one
+   phase to the next.
+
+   This memo is not an IETF standard, and has not been shown to have
+   IETF community consensus.  However, this memo does offer suggestions
+   to the IETF regarding the handling of the IANA registries for DNSSEC
+   algorithms.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-crocker-dnsop-dnssec-
+   algorithm-lifecycle/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-
+   lifecycle.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 21 February 2027.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+Table of Contents
+
+   1.  Background
+   2.  The Seven Phases in the Lifecycle of a DNSSEC Algorithm
+   3.  Process and Criteria for transitions
+     3.1.  A.  Transition into Experimental
+     3.2.  B.  Transition into Adopted
+     3.3.  C.  Transition into Available
+     3.4.  D.  Transition into Mainstream
+     3.5.  E.  Transition into Phaseout
+     3.6.  F.  Transition into Deprecated
+     3.7.  G.  Transition into Obsolescence
+   4.  Lifecycle Phase and the IANA Registry
+     4.1.  Applicability
+     4.2.  A case study: the RSASHA1 signing algorithm
+   5.  Considerations for maintaining a robust DNSSEC algorithm state
+   6.  IANA Considerations
+   7.  Security Considerations
+   8.  Informative References
+   Acknowledgments
+   Authors' Addresses
+
+1.  Background
+
+   Each DNSSEC cryptographic algorithm is used in two distinct but
+   interconnected ways.  The first occurs when a domain owner signs
+   their DNS records using a DNSSEC algorithm.  The second occurs when a
+   DNSSEC validator verifies that the DNSSEC signatures are correct.  If
+   someone uses a DNSSEC algorithm to sign DNS records, the party that
+   receives that signed set of DNS records needs to be able to validate
+   the signatures for them to be useful.  Importantly, this means
+   receiving parties need to implement a validation algorithm before the
+   sending parties can expect to use it effectively.  Equally, the
+   receiving parties have to keep the validation algorithm in service
+   until all signing parties stop using it.
+
+   These relationships seem obvious in hindsight, but there has not been
+   an organized way to communicate the current phase of a DNSSEC
+   algorithm within the Internet community and when transitions between
+   them should and do occur.  This document builds upon the enhancements
+   defined in [RFC9904] to the IANA "DNS Security Algorithm Numbers"
+   registry [DNSKEY-IANA] and the IANA "DNSSEC Delegation Signer (DS)
+   Resource Record (RR) Type Digest Algorithms" registry [DS-IANA]; the
+   columns in these registries enable us to describe the lifecycle phase
+   that an algorithm is in.  This document suggests additional structure
+   to those tables by stating the values that need to be encoded within
+   them.  In turn, this enables the IETF or other Standards Development
+   Organizations (SDOs) to document their current phasing points as
+   algorithms traverse into and out states during their lifetimes.  Note
+   that this document uses conventions from the IANA DNSSEC algorithm
+   tables with the values defined in [RFC9904], but similar
+   documentation methodologies may exist within other SDOs.
+
+   This document also discusses how the IETF and other SDOs can ensure
+   the DNSSEC ecosystem always remains in a resilient cryptographic
+   state, where publishers and verifies widely, if not completely, agree
+   to a minimal set of algorithms that must be available for use even as
+   the collection of algorithms simultaneously traverse through
+   independent lifecycles.
+
+2.  The Seven Phases in the Lifecycle of a DNSSEC Algorithm
+
+   This document defines seven phases in the lifecycle of an individual
+   DNSSEC algorithm:
+
+   1.  Experimental:  The algorithm is under development by the
+          cryptographic community and is not yet ready for general use.
+
+   2.  Adopted:  The algorithm is ready to be used by the Internet
+          community.  It is listed in the IANA registry.  Implementers
+          are expected to support the algorithm for signature
+          validation.
+
+   3.  Available:  The algorithm is ready for use by all parties.
+          Implementers are expected to support the algorithm for signing
+          and signature validation.
+
+   4.  Mainstream:  The algorithm has reached "recommended" status.
+          Implementers are expected to support the algorithm for signing
+          and signature validation.
+
+   5.  Phaseout:  The algorithm is nearing the end of its lifecycle, but
+          it is still in use.  Implementers are advised to ensure other
+          algorithms are available for signers and versifiers can
+          transition to.  Signing should be phased out.
+
+   6.  Deprecated:  All use for signing should have stopped, but
+          signature validation is still supported to support the last
+          signers that are delayed in transitioning.
+
+   7.  Obsolete:  No support for signing or signature validation is
+          expected.
+
+3.  Process and Criteria for transitions
+
+   The previous section does not specify the process and criteria for
+   advancing a DNSSEC algorithm through these lifecycle phases.  There
+   are seven transition points, labeled A through G, between these seven
+   lifecycle phases.  The following subsections describe a process and
+   criteria for each of these transitions.
+
+   These transitions points are idealistic in nature and describe when
+   algorithms are safely able to transition with reasonable stable times
+   between each of the steps.  External factors, such as sudden advances
+   in cryptographic attacks, may lead to some algorithms transitioning
+   more rapidly than desired, or even jumping states entirely in extreme
+   cases (for example transitioning from Adopted to Depreciated if a
+   newer algorithm is suddenly determined to be insecure).  Similarly,
+   very experimental algorithms may never even reach an Adopted state if
+   they fail to show promise for use within DNSSEC.
+
+   Note: in the text below there are descriptions indicating that the
+   SDO (for example, the IETF) should perform some action (such as "the
+   SDO publishes notice").  This document does not define how these
+   actions should be implemented.  Some actions may require simple
+   mailing list discussions, some may require formal standards actions,
+   etc.  This document concentrates on the goals for properly
+   communicating phasing and not the formality semantics required to do
+   so.
+
+   For each of the steps below, in addition to the actions listed for
+   each step, the SDO will need to publish updates to the "DNS Security
+   Algorithm Numbers" registry [DNSKEY-IANA] and the "DNSSEC Delegation
+   Signer (DS) Resource Record (RR) Type Digest Algorithms" registry
+   [DS-IANA] using values from Table 1.
+
+3.1.  A.  Transition into Experimental
+
+   *  Prerequisites:
+
+      -  An algorithm has been created along with a document describing
+         how it can be used within DNSSEC.
+
+3.2.  B.  Transition into Adopted
+
+   *  Prerequisites:
+
+      -  The algorithm has been given a Mnemonic and code-point
+         assignment in the "DNS Security Algorithm Numbers" registry
+         [DNSKEY-IANA].
+
+      -  The cryptographic community has determined that the algorithm
+         as suitable to use for DNSSEC.
+
+      -  Documentation and implementations are widely available and
+         stable.
+
+   *  The SDO has also determined that the algorithm is suitable for use
+      with DNSSEC.
+
+   *  Action: The SDO publishes notice that the algorithm is suitable
+      for use and may be deployed for signature validation.
+
+3.3.  C.  Transition into Available
+
+   *  Prerequisites:
+
+      -  Validation deployment has been measured.
+
+      -  Validation deployment is deemed to have reached an acceptable
+         level.
+
+   *  The SDO reaches consensus that the algorithm has been widely
+      deployed for DNSSEC.
+
+   *  Action: The SDO publishes notice that the algorithm is available
+      for DNSSEC signing.
+
+3.4.  D.  Transition into Mainstream
+
+   *  The SDO reaches consensus that the algorithm has reached
+      Mainstream status as deployment is essentially universal.
+
+   *  Actions:
+
+      -  Validation and signing deployment has been measured.
+
+      -  The SDO publishes notice that the algorithm has reached
+         Mainstream status.
+
+      -  Signers using older algorithms, particularly algorithms in the
+         Phaseout or later phases should transition to a Mainstream or
+         Ready To Use algorithm.
+
+3.5.  E.  Transition into Phaseout
+
+   *  Prerequisites:
+
+      -  The cryptographic community has determined the algorithm is
+         reaching its end of life.
+
+   *  The SDO determines announces the DNSSEC algorithm is being phased
+      out.
+
+   *  Action: The SDO publishes notice to signing operators that they
+      should transition away from the algorithm and begin signing with
+      an algorithm listed as Mainstream or Ready To Use.
+
+3.6.  F.  Transition into Deprecated
+
+   *  Prerequisites:
+
+      -  Signing activity has been measured.
+
+      -  Signing activity is deemed to have largely subsided.
+
+   *  The SDO determines the DNSSEC algorithm should be deprecated for
+      usage.
+
+   *  Action: The SDO publishes notice that use of the algorithm is now
+      inappropriate for DNSSEC signing.
+
+3.7.  G.  Transition into Obsolescence
+
+   *  Prerequisite:
+
+      -  Deployment has been measured.
+
+      -  Deployment is deemed to have reached the lowest achievable
+         level of signing.
+
+   *  The SDO determines the algorithm is obsolete.
+
+   *  Action: The SDO publishes notice that algorithm is obsolete and
+      can be removed from implementations.
+
+4.  Lifecycle Phase and the IANA Registry
+
+   This document provides guidance about the values to be encoded within
+   the implementation and usage columns from the IANA registry of DNSSEC
+   algorithms defined in [RFC9904].  Specifically, Table 1 suggests the
+   values to be placed into each of the IANA registry columns "Use for
+   DNSSSEC Signing", "Use for DNSSSEC Validation", "Implement for
+   DNSSSEC Signing", and "Implement for DNSSSEC Validation" columns for
+   each phase in algorithm lifecycles defined in Section 2.  The IETF
+   and other SDOs are encouraged to consider use of Table 1 when
+   assigning IAN or other registry values.
+
+   Note that at times, particular values associated with past
+   assignments, may not match the guidance encoded in this document.
+   This might be due to values created prior to this guidance being
+   offered, or when the SDO needs to document very unusual corner cases
+   that deviate from the guidance this document offers.
+
+   +=======+===========================+===============================+
+   |       |    DNSSEC Validation      | DNSSEC Delegation and Signing |
+   |       +-------------+-------------+-------------+-----------------+
+   | Phase |  Implement  |     Use     |  Implement  |     Use         |
+   +=======+=============+=============+=============+=================+
+   | 1     |     MAY     |     MAY     |     MAY     |     MAY         |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 2     | RECOMMENDED |     MAY     | RECOMMENDED |     MAY         |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 3     |     MUST    | RECOMMENDED |     MUST    |     MAY         |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 4     |     MUST    |     MUST    |     MUST    | RECOMMENDED     |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 5     |     MUST    | RECOMMENDED | RECOMMENDED |     NOT         |
+   |       |             |             |             | RECOMMENDED     |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 6     | RECOMMENDED |     NOT     |     NOT     |   MUST NOT      |
+   |       |             | RECOMMENDED | RECOMMENDED |                 |
+   +-------+-------------+-------------+-------------+-----------------+
+   | 7     |     NOT     |   MUST NOT  |   MUST NOT  |   MUST NOT      |
+   |       | RECOMMENDED |             |             |                 |
+   |       |  -- or --   |             |             |                 |
+   |       |  MUST NOT   |             |             |                 |
+   +-------+-------------+-------------+-------------+-----------------+
+
+    Note that in the first phase, the Experimental Phase, the algorithm
+    should only be used in a controlled or experimental environment.
+
+     Table 1.  Determine lifecycle phase from the IANA registry.
+
+4.1.  Applicability
+
+   Note that within the IETF, per [RFC9904], this phasing approach is
+   only suggested for algorithms that are being proposed for standards
+   track documents since all other algorithms cannot obtain states other
+   than MAY, NOT RECOMMENDED, or MUST NOT.  Other organizations are
+   encouraged to make use of this Lifecycle Phasing approach if they are
+   able to as well.
+
+4.2.  A case study: the RSASHA1 signing algorithm
+
+   Before [RFC9904] and this document were written, the RSASHA1
+   algorithm entered a problematic state where there was still
+   significant deployment of RSASHA1 when one operating system stopped
+   distributing DNSSEC validating resolvers that supported the RSASHA1
+   algorithm.  This uncoordinated difference between deployments of
+   DNSSEC publishers and DNSSEC validators left some zones in an
+   unprotected state.  Had the industry followed the Lifecycle Phasing
+   approach in this document, this situation could have been mitigated.
+
+5.  Considerations for maintaining a robust DNSSEC algorithm state
+
+   The above sections consider the values associated with a particular
+   algorithm in the IANA registry for "DNS Security Algorithm Numbers"
+   [DNSKEY-IANA] and the IANA registry for "DNSSEC Delegation Signer
+   (DS) Resource Record (RR) Type Digest Algorithms" [DS-IANA] using
+   values from Table 1.  It is equally as important to ensure that as
+   algorithms come into and out of favor that the current set of
+   available algorithms always includes at least one algorithm that is
+   in the Mainstream state.  As the SDO considers transitioning a
+   particular algorithm beyond the Mainstream state, it ought to
+   simultaneously ensure that at least one other algorithm is already
+   present in the Mainstream state or that one other algorithm is in the
+   Ready to Use state and available to simultaneously become a
+   Mainstream algorithm.  Specifically, at no time should there be zero
+   algorithms in the Mainstream state.
+
+6.  IANA Considerations
+
+   IANA has no actions related to this document.
+
+7.  Security Considerations
+
+   This document proposes a lifecycle for DNSSEC algorithms.  By
+   following the criteria presented in Section 3, Internet-wide
+   deployment of new DNSSEC algorithms will occur in a smooth manner
+   that ensures deployed implementations will be able to validate
+   published signatures.  Likewise, following the criteria will ensure
+   that out-of-date DNSSEC algorithms are retired in a graceful manner.
+   The criteria associated with how to effect documenting the transition
+   between phases of the lifecycle will depend on the process that makes
+   changes to the IANA registry as defined in [RFC9904].
+
+   If the industry fails to achieve global consensus on the state of any
+   one algorithm such that domain owners deploying signing zones
+   disagree with the deployed validating resolvers, then it likely that
+   DNS resolutions will fail which in turn will render some portion of
+   the DNS as unusable.  As such, vendors of both authoritative and
+   recursive resolvers, and the operating systems that deploy them, are
+   encouraged to collaborate about the current phases and transitions of
+   DNSSEC algorithms and to strictly follow the guidance in order to
+   avoid DNS interoperability issues.
+
+8.  Informative References
+
+   [DNSKEY-IANA]
+              IANA, "DNS Security Algorithm Numbers", n.d.,
+              <https://www.iana.org/assignments/dns-sec-alg-numbers>.
+
+   [DS-IANA]  IANA, "Delegation Signer (DS) Resource Record (RR) Type
+              Digest Algorithms", n.d.,
+              <https://www.iana.org/assignments/ds-rr-types>.
+
+   [RFC9904]  Hardaker, W. and W. Kumari, "DNSSEC Cryptographic
+              Algorithm Recommendation Update Process", RFC 9904,
+              DOI 10.17487/RFC9904, November 2025,
+              <https://www.rfc-editor.org/rfc/rfc9904>.
+
+Acknowledgments
+
+   Thanks to Warren Kumari for constructive comments.
+
+Authors' Addresses
+
+   Steve Crocker
+   Edgemoor Research Institute
+   Email: steve@shinkuro.com
+
+
+   Russ Housley
+   Vigil Security, LLC
+   Email: housley@vigilsec.com
+
+
+   Wes Hardaker
+   Google LLC
+   Email: ietf@hardakers.net
