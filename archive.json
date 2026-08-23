@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-20T01:18:46.586150+00:00",
+  "timestamp": "2026-08-23T01:25:11.010395+00:00",
   "repo": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
   "labels": [
     {
@@ -181,6 +181,34 @@
       "mergedBy": "russhousley",
       "mergeCommit": {
         "oid": "480b9dbd4c7b19f2d6ea6074a512953028e09f42"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOPtYpuc8AAAABAbzwkQ",
+      "title": "Add to abstract",
+      "url": "https://github.com/russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle/pull/5",
+      "state": "MERGED",
+      "author": "russhousley",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This memo is not an IETF standard",
+      "createdAt": "2026-08-20T15:11:26Z",
+      "updatedAt": "2026-08-20T15:14:00Z",
+      "baseRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "baseRefName": "main",
+      "baseRefOid": "7de1cc9e20a7b282aea082f1146459d3a317d5c4",
+      "headRepository": "russhousley/draft-crocker-dnsop-dnssec-algorithm-lifecycle",
+      "headRefName": "add-to-abstract",
+      "headRefOid": "f67e68cfdfea82344badc83f1fbb934a837dcc4a",
+      "closedAt": "2026-08-20T15:14:00Z",
+      "mergedAt": "2026-08-20T15:14:00Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "a10d005b04fc271fc265f03545589e05678e6d5e"
       },
       "comments": [],
       "reviews": []
